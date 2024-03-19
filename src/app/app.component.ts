@@ -26,6 +26,13 @@ export class AppComponent implements AfterViewInit {
     }]
   };
   // LAB #17
+  readonly supported = {
+    open: 'showOpenFilePicker' in window,
+    save: 'showSaveFilePicker' in window,
+    copy: navigator.clipboard && 'write' in navigator.clipboard,
+    paste: navigator.clipboard && 'read' in navigator.clipboard,
+    share: 'canShare' in navigator,
+  } as const;
 
   ngAfterViewInit(): void {
     // LAB #2.2, 2.3 and 3
